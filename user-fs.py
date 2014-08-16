@@ -1,3 +1,14 @@
+#!/usr/bin/env python
+
+"""
+user-fs
+--
+A File System in User Space containing user information
+"""
+
+__author__ = "Cam Wright"
+__email__ = "cam.wright@gmail.com"
+
 from stat import S_IFDIR, S_IFREG
 from errno import ENOENT
 from sys import argv
@@ -100,4 +111,5 @@ if __name__ == '__main__':
         print "usage: %s <mountpoint>" % argv[0]
         exit(1)
 
-    fuse = FUSE(UserFUSE(), argv[1], foreground=True, ro=True)
+    fuse = FUSE(UserFUSE(), argv[1], foreground=False, ro=True)
+
